@@ -4,6 +4,18 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <Authors>KevinZonda</Authors>
+        <Company>KevinZonda</Company>
+        <PackageProjectUrl>https://github.com/KevinZonda/UoB.AI</PackageProjectUrl>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <RepositoryUrl>https://github.com/KevinZonda/UoB.AI</RepositoryUrl>
     </PropertyGroup>
+
+    <ItemGroup>
+      <None Include="..\README.md">
+        <Pack>True</Pack>
+        <PackagePath>\</PackagePath>
+      </None>
+    </ItemGroup>
 
 </Project>
