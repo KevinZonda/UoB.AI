@@ -27,7 +27,7 @@ namespace KevinZonda.UoB.AI.Library.Data
 
         public IEnumerator<T> GetEnumerator() => _data.AsEnumerable().GetEnumerator();
 
-        public IEnumerator IEnumerable.GetEnumerator() => _data.GetEnumerator();
+        IEnumerator IEnumerable.GetEnumerator() => _data.GetEnumerator();
 
         public int Length => _data.Length;
         public int Demdimension => _data.Length;
