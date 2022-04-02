@@ -1,10 +1,10 @@
-﻿using KevinZonda.UoB.AI.Library.Interfaces;
+﻿using KevinZonda.UoB.AI.Library.ADT;
 
 namespace KevinZonda.UoB.AI.Library.Mathematics.Functions
 {
     internal class GradientDescent
     {
-        public static double[] FindMinimum(double[] initial, double stepSize, double tolerance, Func<double[], double[]> nabla, IDistanceFunction distance, int maxIterations = int.MaxValue)
+        public static double[] FindMinimum(double[] initial, double stepSize, double tolerance, Func<double[], double[]> nabla, DistanceFunction distance, int maxIterations = int.MaxValue)
         {
             double[] current = initial;
             double[] previous = initial;
