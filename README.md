@@ -8,6 +8,7 @@ The solution contains:
 
 - Activation function
   - Sigmoid
+  - Heaviside Step
 - Distance function
   - Euclidean
   - Minkowski
