@@ -36,5 +36,15 @@ namespace KevinZonda.UoB.AI.Library.Data
         public T[] Raw => _data;
         public T[] RawData => _data;
 
+        public void Operate(Vector<T> v, Func<T, T, T> func)
+        {
+            if (v.Size != Size)
+                throw new ArgumentException("Vectors must be of the same size");
+
+            for (int i = 0; i < Size; i++)
+            {
+                _data[i] = func(_data[i], v[i]);
+            }
+        }
     }
 }
