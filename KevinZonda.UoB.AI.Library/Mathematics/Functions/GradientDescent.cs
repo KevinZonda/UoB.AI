@@ -1,31 +1,27 @@
 ﻿using KevinZonda.UoB.AI.Library.ADT;
 
-namespace KevinZonda.UoB.AI.Library.Mathematics.Functions
+namespace KevinZonda.UoB.AI.Library.Mathematics.Functions;
+
+internal class GradientDescent
 {
-    internal class GradientDescent
+    public static double[] FindMinimum(double[] initial, double stepSize, double tolerance,
+        Func<double[], double[]> nabla, DistanceFunction distance, int maxIterations = int.MaxValue)
     {
-        public static double[] FindMinimum(double[] initial, double stepSize, double tolerance, Func<double[], double[]> nabla, DistanceFunction distance, int maxIterations = int.MaxValue)
+        var current = initial;
+        var previous = initial;
+
+        for (var i = 0; i < maxIterations; i++)
         {
-            double[] current = initial;
-            double[] previous = initial;
-            
+            var gradient = nabla(current);
+            var direction = stepSize.Multiply(gradient);
+            var newPoint = current.Add(direction);
 
-            for (int i = 0; i < maxIterations; i++)
-            {
-                var gradient = nabla.Invoke(current);
-                var direction = DoubleArray.Multiply(stepSize, gradient);
-                var newPoint = DoubleArray.Add(current, direction);
+            if (distance.CalculateDistance(newPoint, previous) < tolerance) return newPoint;
 
-                if (distance.CalculateDistance(newPoint, previous) < tolerance)
-                {
-                    return newPoint;
-                }
-
-                previous = current;
-                current = newPoint;
-            }
-
-            return current;
+            previous = current;
+            current = newPoint;
         }
+
+        return current;
     }
 }

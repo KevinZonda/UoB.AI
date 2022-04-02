@@ -1,58 +1,62 @@
 ﻿using System.Collections;
 
-namespace KevinZonda.UoB.AI.Library.Data
+namespace KevinZonda.UoB.AI.Library.Data;
+
+internal class Vector<T> : IEnumerable<T>
 {
-    internal class Vector<T> : IEnumerable<T>
+    public Vector(int dimension)
     {
-        private T[] _data;
+        Data = new T[dimension];
+    }
 
-        public Vector(int demdimension)
-        {
-            _data = new T[demdimension];
-        }
+    public Vector(T[] data)
+    {
+        Data = data;
+    }
 
-        public Vector(T[] data)
-        {
-            _data = data;
-        }
+    public T this[int index]
+    {
+        get => Data[index];
+        set => Data[index] = value;
+    }
 
-        public T this[int index]
-        {
-            get => _data[index];
-            set
-            {
-                _data[index] = value;
-            }
-        }
+    public int Length => Data.Length;
+    public int Dimension => Data.Length;
+    public int Size => Data.Length;
 
-        public IEnumerator<T> GetEnumerator() => _data.AsEnumerable().GetEnumerator();
+    public T[] Data { get; }
 
-        IEnumerator IEnumerable.GetEnumerator() => _data.GetEnumerator();
+    public IEnumerator<T> GetEnumerator()
+    {
+        return Data.AsEnumerable().GetEnumerator();
+    }
+    
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return Data.GetEnumerator();
+    }
 
-        public int Length => _data.Length;
-        public int Demdimension => _data.Length;
-        public int Size => _data.Length;
+    public void Operate(Vector<T> v, Func<T, T, T> func)
+    {
+        if (v.Size != Size)
+            throw new ArgumentException("Vectors must be of the same size");
 
-        public T[] Raw => _data;
-        public T[] RawData => _data;
+        for (var i = 0; i < Size; i++)
+            Data[i] = func(Data[i], v[i]);
+    }
 
-        public void Operate(Vector<T> v, Func<T, T, T> func)
-        {
-            if (v.Size != Size)
-                throw new ArgumentException("Vectors must be of the same size");
+    public static explicit operator Vector<T>(T[] v)
+    {
+        return new Vector<T>(v);
+    }
 
-            for (int i = 0; i < Size; i++)
-            {
-                _data[i] = func(_data[i], v[i]);
-            }
-        }
+    public static implicit operator T[](Vector<T> v)
+    {
+        return v.Data;
+    }
 
-        public static explicit operator Vector<T>(T[] v) => new Vector<T>(v);
-        public static implicit operator T[](Vector<T> v) => v.Raw;
-
-        public override string ToString()
-        {
-            return "[" + string.Join(", ", Raw) + "]";
-        }
+    public override string ToString()
+    {
+        return "[" + string.Join(", ", Data) + "]";
     }
 }
