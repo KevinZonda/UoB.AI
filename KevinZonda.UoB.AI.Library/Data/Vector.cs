@@ -2,13 +2,13 @@
 
 namespace KevinZonda.UoB.AI.Library.Data
 {
-    internal sealed class Vector<T> : IEnumerable<T>
+    internal class Vector<T> : IEnumerable<T>
     {
         private T[] _data;
 
-        public Vector(int size)
+        public Vector(int demdimension)
         {
-            _data = new T[size];
+            _data = new T[demdimension];
         }
 
         public Vector(T[] data)
@@ -27,7 +27,7 @@ namespace KevinZonda.UoB.AI.Library.Data
 
         public IEnumerator<T> GetEnumerator() => _data.AsEnumerable().GetEnumerator();
 
-        IEnumerator IEnumerable.GetEnumerator() => _data.GetEnumerator();
+        public IEnumerator IEnumerable.GetEnumerator() => _data.GetEnumerator();
 
         public int Length => _data.Length;
         public int Demdimension => _data.Length;
@@ -45,6 +45,14 @@ namespace KevinZonda.UoB.AI.Library.Data
             {
                 _data[i] = func(_data[i], v[i]);
             }
+        }
+
+        public static explicit operator Vector<T>(T[] v) => new Vector<T>(v);
+        public static implicit operator T[](Vector<T> v) => v.Raw;
+
+        public override string ToString()
+        {
+            return "[" + string.Join(", ", Raw) + "]";
         }
     }
 }
