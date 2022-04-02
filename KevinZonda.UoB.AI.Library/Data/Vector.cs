@@ -1,4 +1,6 @@
-﻿namespace KevinZonda.UoB.AI.Library.Data
+﻿using System.Collections;
+
+namespace KevinZonda.UoB.AI.Library.Data
 {
     internal sealed class Vector<T> : IEnumerable<T>
     {
@@ -16,36 +18,23 @@
 
         public T this[int index]
         {
-            get
-            {
-                return _data[index];
-            }
+            get => _data[index];
             set
             {
                 _data[index] = value;
             }
         }
 
-        public int Size
-        {
-            get
-            {
-                return _data.Length;
-            }
-        }
+        public IEnumerator<T> GetEnumerator() => _data.AsEnumerable().GetEnumerator();
 
-        public IEnumerator<T> GetEnumerator()
-        {
-            return _data.AsEnumerable().GetEnumerator();
-        }
-
-        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
-        {
-            return _data.GetEnumerator();
-        }
+        IEnumerator IEnumerable.GetEnumerator() => _data.GetEnumerator();
 
         public int Length => _data.Length;
+        public int Demdimension => _data.Length;
+        public int Size => _data.Length;
 
         public T[] Raw => _data;
+        public T[] RawData => _data;
+
     }
 }
