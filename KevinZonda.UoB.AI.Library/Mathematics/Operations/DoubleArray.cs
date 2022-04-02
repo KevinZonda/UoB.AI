@@ -1,4 +1,6 @@
-﻿namespace KevinZonda.UoB.AI.Library.Mathematics
+﻿using KevinZonda.UoB.AI.Library.Data;
+
+namespace KevinZonda.UoB.AI.Library.Mathematics
 {
     internal static class DoubleArray
     {
@@ -81,6 +83,11 @@
         {
             if (!x.IsSameSize(y))
                 throw new ArgumentException("x and y must be of the same length");
+        }
+
+        public static Vector<double> ToVector(this double[] x)
+        {
+            return new Vector<double>(x);
         }
     }
 }
