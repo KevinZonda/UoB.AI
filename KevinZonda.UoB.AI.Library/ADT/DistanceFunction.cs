@@ -2,7 +2,7 @@
 
 namespace KevinZonda.UoB.AI.Library.ADT;
 
-internal abstract class DistanceFunction
+public abstract class DistanceFunction
 {
     public double CalculateDistance(Vector<double> vector1, Vector<double> vector2)
     {

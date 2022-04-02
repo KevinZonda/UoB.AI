@@ -2,7 +2,7 @@
 
 namespace KevinZonda.UoB.AI.Library.Mathematics.Functions.Activation;
 
-internal class HeavisideStep : ActivationFunction
+public class HeavisideStep : ActivationFunction
 {
     public override double Calculate(double input)
     {

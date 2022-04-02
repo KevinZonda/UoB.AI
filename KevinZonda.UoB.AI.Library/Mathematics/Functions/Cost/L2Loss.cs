@@ -3,7 +3,7 @@ using KevinZonda.UoB.AI.Library.Data;
 
 namespace KevinZonda.UoB.AI.Library.Mathematics.Functions.Cost;
 
-internal class L2Loss : CostFunction
+public class L2Loss : CostFunction
 {
     public override double Evaluate(Func<Vector<double>, double> func, Vector<double>[] x, double[] y)
     {
@@ -17,10 +17,10 @@ internal class L2Loss : CostFunction
     }
 }
 
-internal class MeanSquareError : L2Loss
+public class MeanSquareError : L2Loss
 {
 }
 
-internal class SquaredLoss : L2Loss
+public class SquaredLoss : L2Loss
 {
 }

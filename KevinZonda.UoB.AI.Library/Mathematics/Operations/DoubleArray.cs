@@ -1,8 +1,8 @@
 ﻿using KevinZonda.UoB.AI.Library.Data;
 
-namespace KevinZonda.UoB.AI.Library.Mathematics;
+namespace KevinZonda.UoB.AI.Library.Mathematics.Operations;
 
-internal static class DoubleArray
+public static class DoubleArray
 {
     /// <summary>
     ///     x^{T}y

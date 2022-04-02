@@ -2,7 +2,7 @@
 
 namespace KevinZonda.UoB.AI.Library.Mathematics.Functions.Activation;
 
-internal class Sigmoid : ActivationFunction
+public class Sigmoid : ActivationFunction
 {
     public override double Calculate(double input)
     {

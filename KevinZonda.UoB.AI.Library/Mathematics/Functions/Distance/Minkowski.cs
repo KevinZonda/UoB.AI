@@ -3,7 +3,7 @@ using KevinZonda.UoB.AI.Library.Data;
 
 namespace KevinZonda.UoB.AI.Library.Mathematics.Functions.Distance;
 
-internal class Minkowski : DistanceFunction
+public class Minkowski : DistanceFunction
 {
     public Minkowski(double p)
     {

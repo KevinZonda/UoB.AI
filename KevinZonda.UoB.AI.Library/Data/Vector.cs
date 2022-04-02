@@ -2,7 +2,7 @@
 
 namespace KevinZonda.UoB.AI.Library.Data;
 
-internal class Vector<T> : IEnumerable<T>
+public class Vector<T> : IEnumerable<T>
 {
     public Vector(int dimension)
     {

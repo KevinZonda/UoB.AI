@@ -3,7 +3,7 @@ using KevinZonda.UoB.AI.Library.Data;
 
 namespace KevinZonda.UoB.AI.Library.Mathematics.Functions.Cost;
 
-internal class CrossEntropy : CostFunction
+public class CrossEntropy : CostFunction
 {
     public override double Evaluate(Func<Vector<double>, double> func, Vector<double>[] x, double[] y)
     {

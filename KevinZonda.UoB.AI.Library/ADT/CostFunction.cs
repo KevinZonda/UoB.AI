@@ -2,7 +2,7 @@
 
 namespace KevinZonda.UoB.AI.Library.ADT;
 
-internal abstract class CostFunction
+public abstract class CostFunction
 {
     public abstract double Evaluate(Func<Vector<double>, double> func, Vector<double>[] x, double[] y);
 

@@ -2,7 +2,7 @@
 
 namespace KevinZonda.UoB.AI.Library.Mathematics.Functions.Distance;
 
-internal class Chebyshev : DistanceFunction
+public class Chebyshev : DistanceFunction
 {
     public override double CalculateDistance(double[] x, double[] y)
     {

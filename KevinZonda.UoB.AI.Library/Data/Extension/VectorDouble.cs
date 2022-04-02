@@ -1,6 +1,6 @@
 ﻿namespace KevinZonda.UoB.AI.Library.Data.Extension;
 
-internal static class VectorDouble
+public static class VectorDouble
 {
     public static void Add(this Vector<double> v1, Vector<double> v2)
     {

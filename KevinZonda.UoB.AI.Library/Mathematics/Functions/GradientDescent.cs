@@ -1,8 +1,9 @@
 ﻿using KevinZonda.UoB.AI.Library.ADT;
+using KevinZonda.UoB.AI.Library.Mathematics.Operations;
 
 namespace KevinZonda.UoB.AI.Library.Mathematics.Functions;
 
-internal class GradientDescent
+public class GradientDescent
 {
     public static double[] FindMinimum(double[] initial, double stepSize, double tolerance,
         Func<double[], double[]> nabla, DistanceFunction distance, int maxIterations = int.MaxValue)

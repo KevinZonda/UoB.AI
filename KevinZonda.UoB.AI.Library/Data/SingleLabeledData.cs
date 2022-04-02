@@ -1,6 +1,6 @@
 ﻿namespace KevinZonda.UoB.AI.Library.Data;
 
-internal class SingleLabeledData<TX, TY>
+public class SingleLabeledData<TX, TY>
 {
     public SingleLabeledData(Vector<TX> data, TY label)
     {

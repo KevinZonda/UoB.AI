@@ -1,6 +1,6 @@
 ﻿namespace KevinZonda.UoB.AI.Library.ADT;
 
-internal abstract class ActivationFunction
+public abstract class ActivationFunction
 {
     public abstract double Calculate(double input);
 
