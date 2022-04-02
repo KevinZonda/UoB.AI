@@ -1,9 +1,9 @@
 ﻿using KevinZonda.UoB.AI.Library.Data;
-using KevinZonda.UoB.AI.Library.Interfaces;
+using KevinZonda.UoB.AI.Library.ADT;
 
 namespace KevinZonda.UoB.AI.Library.Mathematics.Functions.Distance
 {
-    internal class Minkowski : IDistanceFunction
+    internal class Minkowski : DistanceFunction
     {
         public double P { get; set; }
         public Minkowski(double p)
@@ -26,7 +26,7 @@ namespace KevinZonda.UoB.AI.Library.Mathematics.Functions.Distance
             return CalculateDistance(vector1.Raw, vector2.Raw, p);
         }
 
-        public double CalculateDistance(double[] x, double[] y)
+        public override double CalculateDistance(double[] x, double[] y)
         {
             return CalculateDistance(x, y, P);
         }

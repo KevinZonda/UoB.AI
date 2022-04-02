@@ -1,10 +1,10 @@
-﻿using KevinZonda.UoB.AI.Library.Interfaces;
+﻿using KevinZonda.UoB.AI.Library.ADT;
 
 namespace KevinZonda.UoB.AI.Library.Mathematics.Functions.Distance
 {
-    internal class Chebyshev : IDistanceFunction
+    internal class Chebyshev : DistanceFunction
     {
-        public double CalculateDistance(double[] x, double[] y)
+        public override double CalculateDistance(double[] x, double[] y)
         {
             double max = 0;
             for (int i = 0; i < x.Length; i++)

@@ -1,13 +1,13 @@
-﻿namespace KevinZonda.UoB.AI.Library.Interfaces
+﻿namespace KevinZonda.UoB.AI.Library.ADT
 {
-    internal interface IActivationFunction
+    internal abstract class ActivationFunction
     {
-        public double Calculate(double input);
+        public abstract double Calculate(double input);
     }
-
+    
     public static class ActivationFunctionExtensions
     {
-        internal static ActivationFunctionResult GetResult(this IActivationFunction function, double input)
+        internal static ActivationFunctionResult GetResult(this ActivationFunction function, double input)
         {
             return function.Calculate(input) switch
             {
