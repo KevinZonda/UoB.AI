@@ -15,3 +15,6 @@ The solution contains:
   - Chebyshev
 - Algorithms
   - Gradient Descent
+- Cost function
+  - MSE/L2 Loss/Squared Loss
+  - Cross Entropy
