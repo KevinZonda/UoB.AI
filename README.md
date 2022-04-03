@@ -6,6 +6,9 @@ This module contains the essential methods which are represented by the [*Module
 
 The solution contains:
 
+- Method
+  - Regression
+    - 2D Linear Regression
 - Activation function
   - Sigmoid
   - Heaviside Step
