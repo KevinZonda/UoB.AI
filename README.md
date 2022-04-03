@@ -13,6 +13,7 @@ The solution contains:
 - Activation function
   - Sigmoid
   - Heaviside Step
+  - Tanh/Hyperbolic
 - Distribution
   - Bernoulli
   - Binomial
