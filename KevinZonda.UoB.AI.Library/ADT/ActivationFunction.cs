@@ -13,12 +13,10 @@ public abstract class ActivationFunction
     {
         return calcResult switch
         {
-            double d when d < 0 || d > 1 => throw new ArgumentOutOfRangeException(nameof(calcResult),
-                "Input must be between 0 and 1"),
             double d when d == DecisionBoundary => ActivationLabel.DecisionBoundary,
             double d when d < DecisionBoundary => ActivationLabel.Label0,
             double d when d > DecisionBoundary => ActivationLabel.Label1,
-            _ => throw new NotImplementedException()
+            _ => throw new NotImplementedException(),
         };
     }
 
