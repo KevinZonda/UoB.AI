@@ -20,7 +20,7 @@ public abstract class ActivationFunction
         };
     }
 
-    public virtual double DecisionBoundary { get; protected set; } = 0.5;
+    public virtual double DecisionBoundary => 0.5;
 }
 
 public enum ActivationLabel
