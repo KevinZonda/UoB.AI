@@ -36,13 +36,14 @@ public class Vector<T> : IEnumerable<T>
         return Data.GetEnumerator();
     }
 
-    public void Operate(Vector<T> v, Func<T, T, T> func)
+    public Vector<T> Operate(Vector<T> v, Func<T, T, T> func)
     {
         if (v.Size != Size)
             throw new ArgumentException("Vectors must be of the same size");
 
         for (var i = 0; i < Size; i++)
             Data[i] = func(Data[i], v[i]);
+        return this;
     }
 
     public static explicit operator Vector<T>(T[] v)
