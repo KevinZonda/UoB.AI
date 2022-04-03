@@ -12,6 +12,10 @@ The solution contains:
 - Activation function
   - Sigmoid
   - Heaviside Step
+- Distribution
+  - Bernoulli
+  - Binomial
+  - Normal
 - Distance function
   - Euclidean
   - Minkowski
