@@ -7,9 +7,25 @@ namespace KevinZonda.UoB.AI.Library.Mathematics.Functions;
 
 public class GradientDescent
 {
-    public static double[] FindMinimum(
+    public static Vector<double> FindMinimumByNabla(
         Vector<double> initial, double stepSize, double tolerance,
-        Func<Vector<double>, Vector<double>> nabla,
+        Func<Vector<double>, Vector<double>> nablaFunc,
+        DistanceFunction distance, int maxIterations = int.MaxValue)
+    {
+        return FindMinimum(
+            initial, stepSize, tolerance,
+            x =>
+            {
+                var nabla = nablaFunc(x.w);
+                return OneStep(x.w, x.stepSize, nabla);
+            },
+            distance,
+            maxIterations);
+    }
+
+    public static Vector<double> FindMinimum(
+        Vector<double> initial, double stepSize, double tolerance,
+        Func<(Vector<double> w, double stepSize), Vector<double>> gradientStep,
         DistanceFunction distance, int maxIterations = int.MaxValue)
     {
         var current = initial;
@@ -17,7 +33,7 @@ public class GradientDescent
 
         for (var i = 0; i < maxIterations; i++)
         {
-            var newPoint= OneStep(current, stepSize, nabla(current));
+            var newPoint = gradientStep((current, stepSize));
 
             if (distance.CalculateDistance(newPoint, previous) < tolerance)
                 return newPoint;
