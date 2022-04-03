@@ -1,16 +1,51 @@
 ﻿using KevinZonda.UoB.AI.Library.ADT;
 using KevinZonda.UoB.AI.Library.Data;
 using KevinZonda.UoB.AI.Library.Data.Extension;
+using KevinZonda.UoB.AI.Library.Data.Model;
 using KevinZonda.UoB.AI.Library.Mathematics.Operations;
 
 namespace KevinZonda.UoB.AI.Library.Mathematics.Functions;
 
 public class GradientDescent
 {
+    public GradientDescentConfig Config { get; set; }
+
+    public GradientDescent(GradientDescentConfig config)
+    {
+        Config = config;
+    }
+
+    public Vector<double> FindMinimumByNabla(
+        Vector<double> initial,
+        Func<Vector<double>, Vector<double>> nablaFunc)
+    {
+        return FindMinimumByNabla(
+            initial,
+            Config.LearningRate,
+            Config.Tolerance,
+            nablaFunc,
+            Config.Distance,
+            Config.MaxIterations);
+    }
+
+    public Vector<double> FindMinimum(
+        Vector<double> initial,
+        Func<(Vector<double> w, double stepSize), Vector<double>> gradientStep)
+    {
+        return FindMinimum(
+            initial,
+            Config.LearningRate,
+            Config.Tolerance,
+            gradientStep,
+            Config.Distance,
+            Config.MaxIterations);
+    }
+
+
     public static Vector<double> FindMinimumByNabla(
-        Vector<double> initial, double stepSize, double tolerance,
-        Func<Vector<double>, Vector<double>> nablaFunc,
-        DistanceFunction distance, int maxIterations = int.MaxValue)
+    Vector<double> initial, double stepSize, double tolerance,
+    Func<Vector<double>, Vector<double>> nablaFunc,
+    DistanceFunction distance, int maxIterations = int.MaxValue)
     {
         return FindMinimum(
             initial, stepSize, tolerance,

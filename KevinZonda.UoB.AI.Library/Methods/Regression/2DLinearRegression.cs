@@ -1,7 +1,7 @@
 ﻿using KevinZonda.UoB.AI.Library.Data;
 using KevinZonda.UoB.AI.Library.Data.Extension;
+using KevinZonda.UoB.AI.Library.Data.Model;
 using KevinZonda.UoB.AI.Library.Mathematics.Functions;
-using KevinZonda.UoB.AI.Library.Mathematics.Functions.Distance;
 
 namespace KevinZonda.UoB.AI.Library.Methods.Regression;
 
@@ -10,7 +10,9 @@ public class TwoDLinearRegression
     public Vector<double>[] X { get; set; }
     public double[] Y { get; set; }
 
-    public TwoDLinearRegression(Vector<double>[] x, double[] y)
+    public GradientDescentConfig Config;
+
+    public TwoDLinearRegression(Vector<double>[] x, double[] y, GradientDescentConfig config)
     {
         X = x;
         Y = y;
@@ -18,6 +20,7 @@ public class TwoDLinearRegression
         {
             throw new Exception("Dimension of X and Y are not equal or not in 2D");
         }
+        Config = config;
     }
 
     public bool CheckDemension()
@@ -51,14 +54,9 @@ public class TwoDLinearRegression
 
     public void Train()
     {
-        double stepSize = 0.01;
-        double tor = 0.001;
-        _model = null;
-        Vector<double> w = new Vector<double>(2);
-        var newW = GradientDescent.FindMinimumByNabla(
-            w,
-            stepSize,
-            tor,
+        var l = new GradientDescent(Config);
+        var newW = l.FindMinimumByNabla(
+            new Vector<double>(2),
             (w0) =>
             {
                 var sum = new Vector<double>(2);
@@ -68,8 +66,7 @@ public class TwoDLinearRegression
                     sum.Add(sum);
                 }
                 return sum;
-            }, new Euclidean(),
-            int.MaxValue);
+            });
         _model = new Func<Vector<double>, double>(x => newW[0] * x[0] + newW[1] * x[1]);
     }
 
@@ -79,5 +76,4 @@ public class TwoDLinearRegression
     {
         return _model;
     }
-
 }
