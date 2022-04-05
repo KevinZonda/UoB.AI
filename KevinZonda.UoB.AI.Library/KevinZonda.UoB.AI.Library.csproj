@@ -3,7 +3,7 @@
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
+        <Nullable>annotations</Nullable>
         <Authors>KevinZonda</Authors>
         <Company>KevinZonda</Company>
         <PackageProjectUrl>https://github.com/KevinZonda/UoB.AI</PackageProjectUrl>
