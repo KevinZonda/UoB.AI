@@ -10,6 +10,8 @@ The solution contains:
 - Method
   - Regression
     - 2D Linear Regression
+  - Classification
+    - k-Nearest Neighbour
 - Activation function
   - Sigmoid
   - Heaviside Step
