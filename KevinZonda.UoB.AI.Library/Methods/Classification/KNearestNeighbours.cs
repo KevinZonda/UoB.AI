@@ -5,7 +5,7 @@ using KevinZonda.UoB.AI.Library.Methods.Attribute;
 
 namespace KevinZonda.UoB.AI.Library.Methods.Classification;
 
-[SupervisedLearning]
+[Supervised]
 public class KNearestNeighbours<T>
 {
     public Vector<double>[] X { get; set; }

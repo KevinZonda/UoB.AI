@@ -6,7 +6,7 @@ using KevinZonda.UoB.AI.Library.Methods.Attribute;
 
 namespace KevinZonda.UoB.AI.Library.Methods.Regression;
 
-[SupervisedLearning]
+[Supervised]
 public class TwoDLinearRegression
 {
     public Vector<double>[] X { get; set; }

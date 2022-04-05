@@ -19,23 +19,23 @@
         }
     }
 
-    public class SupervisedLearningAttribute : MethodTagAttribute
+    public class SupervisedAttribute : MethodTagAttribute
     {
-        public SupervisedLearningAttribute() : base(LearningType.Supervised)
+        public SupervisedAttribute() : base(LearningType.Supervised)
         {
         }
     }
 
-    public class UnsupervisedLearningAttribute : MethodTagAttribute
+    public class UnsupervisedAttribute : MethodTagAttribute
     {
-        public UnsupervisedLearningAttribute() : base(LearningType.Unsupervised)
+        public UnsupervisedAttribute() : base(LearningType.Unsupervised)
         {
         }
     }
 
-    public class ReinforcementLearningAttribute : MethodTagAttribute
+    public class ReinforcementAttribute : MethodTagAttribute
     {
-        public ReinforcementLearningAttribute() : base(LearningType.Reinforcement)
+        public ReinforcementAttribute() : base(LearningType.Reinforcement)
         {
         }
     }
