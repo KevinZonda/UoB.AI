@@ -2,9 +2,11 @@
 using KevinZonda.UoB.AI.Library.Data.Extension;
 using KevinZonda.UoB.AI.Library.Data.Model;
 using KevinZonda.UoB.AI.Library.Mathematics.Functions;
+using KevinZonda.UoB.AI.Library.Methods.Attribute;
 
 namespace KevinZonda.UoB.AI.Library.Methods.Regression;
 
+[SupervisedLearning]
 public class TwoDLinearRegression
 {
     public Vector<double>[] X { get; set; }
