@@ -13,21 +13,22 @@ The solution contains:
   - Classification
     - K-Means
     - k-Nearest Neighbour
-- Activation function
-  - Sigmoid
-  - Heaviside Step
-  - Tanh/Hyperbolic
-- Distribution
-  - Bernoulli
-  - Binomial
-  - Normal
-- Distance function
-  - Euclidean
-  - Minkowski
-  - Manhattan
-  - Chebyshev
+- Function
+  - Activation func.
+    - Sigmoid
+    - Heaviside Step
+    - Tanh/Hyperbolic
+  - Distribution func.
+    - Bernoulli
+    - Binomial
+    - Normal
+  - Distance func.
+    - Euclidean
+    - Minkowski
+    - Manhattan
+    - Chebyshev
+  - Cost func.
+    - MSE/L2 Loss/Squared Loss
+    - Cross Entropy
 - Algorithms
   - Gradient Descent
-- Cost function
-  - MSE/L2 Loss/Squared Loss
-  - Cross Entropy
