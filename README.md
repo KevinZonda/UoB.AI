@@ -11,6 +11,7 @@ The solution contains:
   - Regression
     - 2D Linear Regression
   - Classification
+    - K-Means
     - k-Nearest Neighbour
 - Activation function
   - Sigmoid
