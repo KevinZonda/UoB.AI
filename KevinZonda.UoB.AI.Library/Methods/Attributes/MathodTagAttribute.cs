@@ -17,6 +17,11 @@
         {
             Type = type;
         }
+
+        public static MethodTagAttribute[] GetAttribute(Type t)
+        {
+            return GetCustomAttributes(t, typeof(MethodTagAttribute)) as MethodTagAttribute[];
+        }
     }
 
     public class SupervisedAttribute : MethodTagAttribute
