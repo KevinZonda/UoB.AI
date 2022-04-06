@@ -2,7 +2,7 @@
 
 namespace KevinZonda.UoB.AI.Library.Data;
 
-public class Vector<T> : IEnumerable<T>
+public class Vector<T> : IEnumerable<T>, ICloneable
 {
     public Vector(int dimension)
     {
@@ -59,5 +59,45 @@ public class Vector<T> : IEnumerable<T>
     public override string ToString()
     {
         return "[" + string.Join(", ", Data) + "]";
+    }
+
+    public object Clone()
+    {
+        return new Vector<T>(Data.Clone() as T[]);
+    }
+
+    public static bool operator ==(Vector<T> v1, Vector<T> v2)
+    {
+        var v1Data = v1.Data;
+        var v2Data = v2.Data;
+        if (v1Data.Length != v2Data.Length)
+            return false;
+        for (var i = 0; i < v1Data.Length; i++)
+            if (v1Data[i].Equals(v2Data[i]))
+                return false;
+        return true;
+    }
+
+    public static bool operator !=(Vector<T> v1, Vector<T> v2)
+    {
+        return !(v1 == v2);
+    }
+
+    public override bool Equals(object obj)
+    {
+        if (ReferenceEquals(this, obj))
+            return true;
+        if (ReferenceEquals(obj, null))
+            return false;
+
+        if (GetType() != obj.GetType())
+            return false;
+
+        return this == (Vector<T>)obj;
+    }
+
+    public override int GetHashCode()
+    {
+        return Data.GetHashCode();
     }
 }
