@@ -3,7 +3,7 @@
 > This project is currently under construction.
 
 [![.NET](https://github.com/KevinZonda/UoB.AI/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/KevinZonda/UoB.AI/actions/workflows/build.yml)  
-This module contains the essential methods which are represented by the [*Module 06-34238 (2021) Artificial Intelligence 1 Level 1/C*](https://www.cs.bham.ac.uk/internal/modules/2021/06-34238/) of the University of Birmingham.
+This module contains the essential methods which are presented by the [*Module 06-34238 (2021) Artificial Intelligence 1 Level 1/C*](https://www.cs.bham.ac.uk/internal/modules/2021/06-34238/) of the University of Birmingham.
 
 The solution contains:
 
